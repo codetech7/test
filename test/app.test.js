@@ -1,15 +1,33 @@
 const modula = require("../module");
 const assert = require("assert");
+const mocha = require("mocha");
 const { isTypedArray } = require("util/types");
 
 class Car{
+    //if a car is still new or not based on how many distance it has covered.
+    
+    distance;
 
+    Car(){
+        distance = 0;
+    }
    
-    Drive(){
-        return "vroom";
+    drive(increase){
+        
+        distance += increase;
     }
 
-    Honk(){
+    isRickety(){
+        if(distance > 50){
+            console.log("not yet rickety");
+        }
+
+        else {
+            return("already rickety");
+        }
+    }
+
+    honk(){
         return "pim";
     }
 
@@ -17,9 +35,10 @@ class Car{
 };
 
 describe("Car", ()=>{
-    it(" can drive", ()=>{
+    it("is rickety", ()=>{
         const cra = new Car();
-        assert.equal(cra.Drive(), "vroom");
+        cra.drive(40);
+        assert.equal(isRickety(), "already rickety");
     });
 
     it("can honk", ()=>{
