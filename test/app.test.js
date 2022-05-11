@@ -6,15 +6,13 @@ const { isTypedArray } = require("util/types");
 class Car{
     //if a car is still new or not based on how many distance it has covered.
     
-    distance;
-
-    Car(){
-        distance = 0;
+    constructor(){
+        this.distance = 0;
     }
    
     drive(increase){
         
-        distance += increase;
+        this.distance += increase;
     }
 
     isRickety(){
@@ -27,9 +25,6 @@ class Car{
         }
     }
 
-    honk(){
-        return "pim";
-    }
 
 
 };
@@ -38,11 +33,8 @@ describe("Car", ()=>{
     it("is rickety", ()=>{
         const cra = new Car();
         cra.drive(40);
-        assert.equal(isRickety(), "already rickety");
+        assert.equal(cra.isRickety(), "already rickety");
     });
 
-    it("can honk", ()=>{
-        const cra = new Car();
-        assert.equal(cra.Honk(), "pim");
-    })
+    
 });
