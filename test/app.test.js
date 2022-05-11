@@ -16,7 +16,7 @@ class Car{
     }
 
     isRickety(){
-        if(distance > 50){
+        if(this.distance > 50){
             console.log("not yet rickety");
         }
 
