@@ -34,7 +34,15 @@ describe("Car", ()=>{
         const cra = new Car();
         cra.drive(40);
         assert.equal(cra.isRickety(), "already rickety");
+        cra.drive(70);
+        assert.equal(cra.isRickety(), "already rickety");
     });
-
+    it("is not rickety", ()=>{
+        const cra = new Car();
+        cra.drive(40);
+        assert.equal(cra.isRickety(), "not yet rickety");
+        cra.drive(70);
+        assert.equal(cra.isRickety(), "not yet rickety");
+    })
     
 });
